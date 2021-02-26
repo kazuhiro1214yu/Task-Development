@@ -51,9 +51,6 @@ p {
 }
 
 /* ヘッダー */
-// #header {
-//   color: #fff;
-// }
 
 .header-list {
   color: #fff !important;
@@ -61,6 +58,11 @@ p {
   &:hover { color: #C0C0C0 !important;}
 }
 
+.dropdown-toggle {
+  color: #fff !important;
+  font-weight:bold;
+  &:hover { color: #C0C0C0 !important;}
+}
 
 .navbar {
   background-color:#008080;
