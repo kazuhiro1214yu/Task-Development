@@ -64,6 +64,20 @@ p {
   &:hover { color: #C0C0C0 !important;}
 }
 
+.dropdown-header {
+    display: block;
+    padding: 3px 20px;
+    font-size: 12px;
+    line-height: 1.428571429;
+    color: #777777;
+    white-space: nowrap;
+}
+
+li .dropdown-header {
+    background-color: rgba(200,200,200,0.5);
+    font-weight: bold;
+}
+
 .navbar {
   background-color:#008080;
 }
@@ -84,6 +98,19 @@ p {
   color: #C0C0C0;
   text-decoration: none;
 }
+
+// トップ
+
+// B8追記
+.jumbotron {
+  background-color: transparent;
+}
+
+#top-main-title {
+  font-style: italic;
+  font-weight: bold;
+}
+
 
 
 /* デバッグウインドウ */
