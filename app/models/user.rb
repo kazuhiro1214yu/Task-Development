@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # c1　tasksモデルに対して1対多の関係を作るために以下コード
+  has_many :tasks, dependent: :destroy
+
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
