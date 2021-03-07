@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   
   resources :users
+  # c4　taskのリソースを作成
+  resources :tasks
 end
