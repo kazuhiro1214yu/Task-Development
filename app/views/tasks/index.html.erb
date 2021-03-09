@@ -19,17 +19,19 @@
         <tbody>
 <!--each文を追記-->
           <% @tasks.each do |task| %>
-          <tr>
-            <td>
-              <%= link_to task.title, "#" %>
-            </td>
-            <td>
-              <%= task.updated_at%>
-            </td>
-            <td><%= link_to "編集", "#", class: "btn btn-lg btn-success" %> <%= link_to "削除", "#", class: "btn btn-lg btn-danger" %></td>
-            <td></td>
+            <tr>
+              <td>
+                <%= link_to task.title, "#", class:"task-title" %>
+              </td>
+              <td>
+                <%= l(task.updated_at, format: :long) %>
+              </td>
+              <td>
+                <%= link_to "編集", "#", class: "btn btn-lg btn-success" %>
+                <%= link_to "削除", "#", class: "btn btn-lg btn-danger" %>
+              </td>
+            </tr>
           <% end %>
-          </tr>
         </tbody>
       </table>
     </div>    
