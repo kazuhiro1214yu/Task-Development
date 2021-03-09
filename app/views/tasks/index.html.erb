@@ -1,8 +1,7 @@
 <% provide(:title, 'Index') %>
 <div class="container">
-  <h1>タスク一覧</h1>
-
   <div class="row">
+    <h1><%= current_user.name %>タスク一覧</h1>
     <div class="col-md-10 col-md-offset-1">
       <div class="text-right">
         <%= link_to "タスク新規作成", "#", class: "btn btn-lg btn-primary" %>
@@ -18,11 +17,18 @@
         </thead>
     
         <tbody>
+<!--each文を追記-->
+          <% @tasks.each do |task| %>
           <tr>
-            <td><%= link_to @task.title, "#" %></td>
-            <td>2021/03/07</td>
+            <td>
+              <%= link_to task.title, "#" %>
+            </td>
+            <td>
+              <%= task.updated_at%>
+            </td>
             <td><%= link_to "編集", "#", class: "btn btn-lg btn-success" %> <%= link_to "削除", "#", class: "btn btn-lg btn-danger" %></td>
             <td></td>
+          <% end %>
           </tr>
         </tbody>
       </table>

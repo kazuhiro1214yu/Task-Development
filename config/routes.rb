@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post   '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   
-  resources :users
-  # c4　taskのリソースを作成
-  resources :tasks
+  resources :users do
+    resources :tasks
+  end
 end

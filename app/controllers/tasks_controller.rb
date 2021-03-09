@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   
   # c5 indexアクション（一覧表示）
   def index
-    @task = Task.find(1)
+    @user = User.find(params[:user_id])
+    @tasks = @user.tasks
   end 
-  
 end
