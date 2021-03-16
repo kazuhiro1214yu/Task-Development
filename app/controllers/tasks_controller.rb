@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   before_action :set_user
-  before_action :set_task, only: [:show, :edit, :update]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  
+  
   
   # c5 indexアクション（一覧ページ）
   def index
@@ -14,7 +16,6 @@ class TasksController < ApplicationController
   end 
   
   def show
-    
   end 
   
   
@@ -48,6 +49,11 @@ class TasksController < ApplicationController
     end
   end 
   
+  def destroy
+      @task.destroy
+      # flash[:success] = "タスク情報を削除しました。"
+      redirect_to user_tasks_url @user
+  end 
 
   
   # 以下、繰り返し利用するメソッドを記述する
@@ -63,6 +69,6 @@ class TasksController < ApplicationController
     end 
     
     def set_task
-      @task = @user.tasks.find(params[:id])
+      @task = @user.tasks.find_by(id: params[:id])
     end 
 end
