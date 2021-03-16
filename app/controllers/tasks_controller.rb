@@ -35,7 +35,14 @@ class TasksController < ApplicationController
 
   # c7 editアクションで入力した更新情報を保存するアクション（viewなし）
   def update
-    
+    @task = @user.tasks.find(params[:id])
+    if @task.update_attributes(task_params)
+      flash[:success] = "タスク情報を更新しました。"
+      redirect_to user_tasks_url @user
+    else
+      flash.now[:danger] = "更新に失敗しました。"
+      render :edit
+    end
   end 
   
 
