@@ -27,7 +27,8 @@
                 <%= l(task.updated_at, format: :long) %>
               </td>
               <td>
-                <%= link_to "編集", "#", class: "btn btn-lg btn-success" %>
+                <!--(@user,task)の使い方についてはブックマークのリンクを参照-->
+                <%= link_to "編集", edit_user_task_path(@user, task), class: "btn btn-lg btn-success" %>
                 <%= link_to "削除", "#", class: "btn btn-lg btn-danger" %>
               </td>
             </tr>
