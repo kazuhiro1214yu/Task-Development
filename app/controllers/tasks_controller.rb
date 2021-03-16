@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_user
-  
+  before_action :set_task, only: [:show, :edit, :update]
   
   # c5 indexアクション（一覧ページ）
   def index
@@ -12,6 +12,11 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
   end 
+  
+  def show
+    
+  end 
+  
   
   # C6 newアクションで入力した情報を保存するアクション（viewなし）
   def create
@@ -30,12 +35,10 @@ class TasksController < ApplicationController
   
   # c7 editアクション（更新ページ）
   def edit
-    @task = @user.tasks.find(params[:id])
   end
 
   # c7 editアクションで入力した更新情報を保存するアクション（viewなし）
   def update
-    @task = @user.tasks.find(params[:id])
     if @task.update_attributes(task_params)
       flash[:success] = "タスク情報を更新しました。"
       redirect_to user_tasks_url @user
@@ -51,11 +54,15 @@ class TasksController < ApplicationController
   # before_actionを活用してコードと処理を簡潔にする。
   private
   
+    def task_params
+      params.require(:task).permit(:title, :detail,)
+    end 
+    
     def set_user
       @user = User.find(params[:user_id])
     end 
     
-    def task_params
-      params.require(:task).permit(:title, :detail,)
+    def set_task
+      @task = @user.tasks.find(params[:id])
     end 
 end

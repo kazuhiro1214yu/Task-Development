@@ -21,7 +21,7 @@
           <% @tasks.each do |task| %>
             <tr>
               <td>
-                <%= link_to task.title, "#", class:"task-title" %>
+                <%= link_to task.title, user_task_path(@user, task), class:"task-title" %>
               </td>
               <td>
                 <%= l(task.updated_at, format: :long) %>
