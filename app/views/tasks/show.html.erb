@@ -17,7 +17,8 @@
           </tr>
           <tr>
             <th class="active col-md-2 text-center">詳細</th>
-            <td><%= @task.detail%></td>
+            
+            <td><%= Rinku.auto_link(@task.detail, :all, 'target="_blank"').html_safe %></td>
           </tr>
           <tr>
             <th class="active col-md-2 text-center">作成日</th>
