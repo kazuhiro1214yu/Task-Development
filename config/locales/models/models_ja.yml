@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      task: タスク
     attributes:
         user:
           id: ID
@@ -11,13 +12,9 @@ ja:
           password_confirmation: パスワード再入力
           created_at: 作成日
           updated_at: 更新日
-          
-    models:
-      task: タスク
-    attributes:
         task:
           id: ID
           title: 名称
-          detail: 詳細
+          dedail: 詳細
           created_at: 作成日
           updated_at: 更新日
