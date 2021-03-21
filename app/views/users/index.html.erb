@@ -4,6 +4,7 @@
 
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
+      <%= will_paginate %>
       <table class="table table-sm table-hover">
         <thead>
           <tr>
@@ -14,7 +15,13 @@
         <tbody>
           <% @users.each do |user| %>
           <tr>
-            <td><%= link_to user.name, user_path(user)%></td>
+            <td><%= link_to user.name, user_path(user)%> 
+            <% if user.admin %>
+              <span class="label label-primary">管理者</span>
+            <% else %>
+              <span class="label label-success">一般</span>
+            <% end %>
+            </td>
           </tr>
           <% end %>
         </tbody>
