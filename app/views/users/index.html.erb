@@ -16,7 +16,7 @@
           <% @users.each do |user| %>
           <tr>
             <td><%= link_to user.name, user_path(user)%> 
-            <% if user.admin %>
+            <% if user.admin? %>
               <span class="label label-primary">管理者</span>
             <% else %>
               <span class="label label-success">一般</span>
@@ -27,7 +27,7 @@
               <% if current_user.admin? && !current_user?(user) %>
                 <%= link_to "削除", user_path(user), method: :delete,
                     data: { confirm: "削除してよろしいですか？" },
-                    class: "btn btn-danger" %>
+                    class: "btn btn-danger pull-right" %>
               <% end %>
             </td>
           </tr>

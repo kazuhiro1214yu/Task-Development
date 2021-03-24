@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
+  before_action :admin_user, only: [:index, :destroy]
+  before_action :admin_or_correct, only: [:show ]
   
   def index
     @users = User.paginate(page: params[:page], per_page: 20)
@@ -59,18 +60,16 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end 
     
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "ログインしてください。"
-        redirect_to login_url
-      end
-    end 
+    # def logged_in_user
+    #   unless logged_in?
+    #     flash[:danger] = "ログインしてください。"
+    #     redirect_to login_url
+    #   end
+    # end 
     
-    def correct_user
-      redirect_to(root_url) unless current_user?(@user)
-    end 
+    # def correct_user
+    #   redirect_to(root_url) unless current_user?(@user)
+    # end 
     
-    def admin_user
-      redirect_to root_url unless current_user.admin?
-    end 
+
 end
