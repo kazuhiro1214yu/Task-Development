@@ -8,8 +8,9 @@ class TasksController < ApplicationController
   
   # c5 indexアクション（一覧ページ）
   def index
-    @tasks = @user.tasks
+    @tasks = @user.tasks.order("id DESC")
     # ↑@userは「current_user」でも代用可能。（session_helper.rb　でcurrent_user を定義しているため）
+    # id DESCは結果を「降順」で表示する引数です 
   end
   
   #c6 newアクション（新規作成ページ）
@@ -71,6 +72,9 @@ class TasksController < ApplicationController
     end 
     
     def set_task
-      @task = @user.tasks.find_by(id: params[:id])
+      unless @task = @user.tasks.find_by(id: params[:id])
+        flash[:danger] = "権限がありません"
+        redirect_to user_tasks_url @user
+      end
     end 
 end

@@ -10,6 +10,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  # #ログイン済みの場合、ログイン画面を表示させないためのメソッド
+  # def limitation_login_user
+  #   if @current_user
+  #     flash[:notice] = "すでにログイン状態です"
+  #     redirect_to user_task_url
+  #   end
+  # end 
+  
     # 現ログインユーザーであるか
   def correct_user
     redirect_to root_url unless current_user?(@user)

@@ -15,6 +15,10 @@ gem 'jquery-rails'
 gem 'turbolinks',   '~> 5'
 gem 'jbuilder',     '~> 2.5'
 gem 'rinku'
+gem 'rails_autolink'
+#autolinkはtask.showで投稿内容でリンクが含まれた場合に必要なgem
+#rinkuも同じ、投稿内容にリンクが含まれた場合に必要なgem
+#本来はどちらか１つで良いため、rinkuをインストール。しかし、そうすると「投稿内容を改行するメソッド」が使えないためautolinkをインストールし直した。
 
 group :development, :test do
   gem 'sqlite3'
