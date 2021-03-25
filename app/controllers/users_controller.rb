@@ -14,6 +14,10 @@ class UsersController < ApplicationController
   end
 
   def new
+    if logged_in? && !current_user.admin?
+      flash[:success] = "ログイン済みです"
+      redirect_to @current_user
+    end
     @user = User.new
   end
   
